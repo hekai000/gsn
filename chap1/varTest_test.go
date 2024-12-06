@@ -54,3 +54,7 @@ func TestPointerArithmetic(t *testing.T) {
 func TestUnnameStruct(t *testing.T) {
 	UnnamedStruct()
 }
+
+func TestStructTest(t *testing.T) {
+	StructEx()
+}

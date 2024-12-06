@@ -223,3 +223,15 @@ func UnnamedStruct() {
 	fmt.Println(s2)
 
 }
+
+func StructEx() {
+	type person struct {
+		name string
+		age  int
+	}
+	p := person{"Alice", 25}
+	fmt.Println(p.name, p.age)
+	p.age = 30
+	fmt.Println(p.name, p.age)
+
+}
