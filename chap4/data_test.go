@@ -6,9 +6,9 @@ import (
 )
 
 func TestData(t *testing.T) {
-	a := [3]int{1, 2}
-	b := [...]int{1, 2, 3, 4}
-	c := [5]int{2: 100, 4: 200}
+	a := [3]int{1, 2}           //初始化，未初始化的为0
+	b := [...]int{1, 2, 3, 4}   //通过初始值确定数组长度
+	c := [5]int{2: 100, 4: 200} //通过索引赋值
 
 	d := [...]struct {
 		name string
@@ -31,7 +31,7 @@ func TestData2(t *testing.T) {
 	a := [2]int{}
 	fmt.Printf("a: %p\n", &a)
 	test(a)
-	fmt.Println(a)
+	fmt.Println(a) //值拷贝，地址不同
 }
 
 func TestData3(t *testing.T) {
@@ -47,10 +47,10 @@ func TestSlice(t *testing.T) {
 	s1 := []int{0, 1, 2, 3, 8: 100}
 	fmt.Println(s1, len(s1), cap(s1))
 
-	s2 := make([]int, 6, 8)
+	s2 := make([]int, 6, 8) //通过make函数创建切片，指定长度和容量
 	fmt.Println(s2, len(s2), cap(s2))
 
-	s3 := make([]int, 6)
+	s3 := make([]int, 6) //省略cap
 	fmt.Println(s3, len(s3), cap(s3))
 
 	s4 := []int{0, 1, 2, 3, 4, 5}
@@ -94,7 +94,7 @@ func TestReslice(t *testing.T) {
 	s2[3] = 200
 	fmt.Println(s2)
 	fmt.Println(s1)
-	fmt.Println(s)
+	fmt.Println(s) //新对象依旧指向底层数组
 }
 
 func TestAppend(t *testing.T) {
@@ -117,7 +117,7 @@ func TestAppend(t *testing.T) {
 func TestSlice3(t *testing.T) {
 	s := make([]int, 0, 1)
 	c := cap(s)
-
+	//通过2倍容量扩容
 	for i := 0; i < 50; i++ {
 		s = append(s, i)
 		fmt.Printf("i: %d, len: %d, cap: %d\n", i, len(s), cap(s))
