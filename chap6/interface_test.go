@@ -152,6 +152,6 @@ func (a FuncDo) Do() {
 func TestInterface10(t *testing.T) {
 	var td Tester2 = FuncDo(func() {
 		fmt.Println("Hello, world")
-	})
-	td.Do()
+	}) //将一个匿名函数包装为接口实例
+	td.Do() //通过调用接口调用该函数
 }
