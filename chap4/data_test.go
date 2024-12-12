@@ -315,3 +315,14 @@ func TestStruct6(t *testing.T) {
 	fmt.Println(u.name)
 
 }
+
+func appendSlice(s []int, x int) []int {
+	s = append(s, x)
+	fmt.Printf("s: %p, %v\n", &s, s)
+	return s
+}
+func TestSlice4(t *testing.T) {
+	s := []int{1, 2, 3, 4, 5}
+	appendSlice(s, 6)
+	fmt.Printf("s: %p, %v\n", &s, s)
+}
